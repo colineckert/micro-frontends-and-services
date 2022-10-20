@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: auth
-          image: us.gcr.io/ticketing-dev-366003/auth
+          image: colineckert/auth
+          # image: us.gcr.io/ticketing-dev-366003/auth
 ---
 apiVersion: v1
 kind: Service
