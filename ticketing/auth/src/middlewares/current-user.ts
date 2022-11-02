@@ -6,6 +6,14 @@ interface UserPayload {
   email: string;
 }
 
+declare global {
+  namespace Express {
+    interface Request {
+      currentUser?: UserPayload;
+    }
+  }
+}
+
 export const currentUser = (
   req: Request,
   res: Response,
