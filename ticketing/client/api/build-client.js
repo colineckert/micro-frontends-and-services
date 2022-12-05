@@ -5,7 +5,7 @@ const buildClient = ({ req }) => {
     // we are on the server! make request in correct kubernetes namespace
     return axios.create({
       baseURL:
-        'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser',
+        'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
       headers: req.headers,
     });
   } else {
@@ -13,4 +13,5 @@ const buildClient = ({ req }) => {
     return axios.create({ baseURL: '/' });
   }
 };
+
 export default buildClient;
