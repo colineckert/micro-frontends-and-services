@@ -17,6 +17,8 @@ spec:
           image: colineckert/auth
           # image: us.gcr.io/ticketing-dev-366003/auth
           env:
+            - name: MONGO_URI
+              value: 'mongodb://auth-mongo-srv:27017/auth'
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
