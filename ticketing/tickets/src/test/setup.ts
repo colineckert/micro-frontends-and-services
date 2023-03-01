@@ -37,17 +37,17 @@ afterAll(async () => {
 global.signin = () => {
   // Build a JWT payload { id, email, }
   const payload = {
-    id: 'j23l4j23lj',
-    email: 'testemail@test.com'
-  }
+    id: new mongoose.Types.ObjectId().toHexString(),
+    email: 'testemail@test.com',
+  };
   // Create the JWT!
   const token = jwt.sign(payload, process.env.JWT_KEY!);
   // Build the session object { jwt: MY_JWT }
-  const session = { jwt: token }
+  const session = { jwt: token };
   // Turn that session into JSON
   const sessionJson = JSON.stringify(session);
   // Take JSON and encode it as base64
-  const base64 = Buffer.from(sessionJson).toString('base64')
+  const base64 = Buffer.from(sessionJson).toString('base64');
   // return string thats the cookie with the encoded data
   return [`session=${base64}`];
 };
