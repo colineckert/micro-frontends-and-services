@@ -6,7 +6,7 @@ import {
   requireAuth,
   NotAuthorizedError,
 } from '@ce-tickets/common';
-import { Ticket } from '../models/tickets';
+import { Ticket } from '../models/ticket';
 import { TicketUpdatedPublisher } from '../events/publishers/ticket-updated-publisher';
 import { natsWrapper } from '../nats-wrapper';
 

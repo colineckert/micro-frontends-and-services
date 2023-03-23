@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
 import { requireAuth, validateRequest } from '@ce-tickets/common';
-import { Ticket } from '../models/tickets';
+import { Ticket } from '../models/ticket';
 import { TicketCreatedPublisher } from '../events/publishers/ticket-created-publisher';
 import { natsWrapper } from '../nats-wrapper';
 
@@ -32,7 +32,7 @@ router.post(
       title: ticket.title,
       price: ticket.price,
       userId: ticket.userId,
-    })
+    });
 
     res.status(201).send(ticket);
   }
