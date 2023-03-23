@@ -1,5 +1,5 @@
-import { NotFoundError, requireAuth } from '@ce-tickets/common';
 import express, { Request, Response } from 'express';
+import { NotFoundError } from '@ce-tickets/common';
 import { Ticket } from '../models/ticket';
 
 const router = express.Router();
@@ -7,7 +7,9 @@ const router = express.Router();
 router.get('/api/tickets/:id', async (req: Request, res: Response) => {
   const ticket = await Ticket.findById(req.params.id);
 
-  if (!ticket) throw new NotFoundError();
+  if (!ticket) {
+    throw new NotFoundError();
+  }
 
   res.send(ticket);
 });
